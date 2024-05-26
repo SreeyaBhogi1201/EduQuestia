@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <h2>Let's get you Logged in...</h2>
+    <img class="pic" src="https://t3.ftcdn.net/jpg/05/32/81/78/360_F_532817809_Cwl8Nbc2hr86IvoadrbDfGhCmSHK0T8A.jpg">
+    <form onsubmit="return login()">
+        <fieldset>
+            <label>E-mail</label><br>
+            <input class="inp" type="email" id="email" placeholder="Enter e-mail" required><br><br><br><br>
+            <label>Password</label><br>
+            <input class="inp" type="password" id="password" placeholder="Enter Password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])([^\W_]).{5,8}" title="Password should contain at least one lowercase, one uppercase, a number"><br><br><br><br>
+            <label for="captcha">Math CAPTCHA: <span id="captchaExpression"></span></label><br>
+            <div class="captcha-container">
+                <input class="inp captcha-input" type="number" id="captchaInput" placeholder="Enter CAPTCHA" required>
+                <button type="button" onclick="refreshCaptcha()" class="refresh-button">Refresh</button>
+            </div>
+            <br><br><br>
+            <input type="checkbox" id="rememberMe"> <label>Remember me</label><br><br>
+            <div class="butto">
+                <button class="back" type="submit">Login</button>
+            </div>
+        </fieldset>
+    </form>
+    <script>
+        function login() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var captcha = parseInt(document.getElementById("captchaInput").value);
+
+            if (!email) {
+                alert("Please fill your email");
+                return false;
+            }
+
+            if (!password) {
+                alert("Please fill your password");
+                return false;
+            }
+
+            var correctCaptcha = calculateCaptcha(document.getElementById("captchaExpression").innerText);
+
+            if (captcha !== correctCaptcha) {
+                alert("Incorrect CAPTCHA.");
+                return false;
+            }
+
+            return true; 
+        }
+
+        function calculateCaptcha(expression) {
+            var parts = expression.split(" ");
+            var num1 = parseInt(parts[0]);
+            var operator = parts[1];
+            var num2 = parseInt(parts[2]);
+
+            if (operator === "+") {
+                return num1 + num2;
+            } else if (operator === "-") {
+                return num1 - num2;
+            } else {
+                throw new Error("Invalid operator");
+            }
+        }
+
+        function generateCaptcha() {
+            var num1 = Math.floor(Math.random() * 10); 
+            var num2 = Math.floor(Math.random() * 10); 
+            var operator = Math.random() < 0.5 ? '+' : '-'; 
+
+            document.getElementById("captchaExpression").innerText = num1 + " " + operator + " " + num2;
+        }
+
+        function refreshCaptcha() {
+            generateCaptcha();
+        }
+
+        window.onload = generateCaptcha;
+    </script>
+</body>
+</html>

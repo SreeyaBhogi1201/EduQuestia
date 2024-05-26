@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+    <h2>Let's get you Signed Up ...</h2>
+    <img class="pic" src="https://cdn.dribbble.com/users/2092964/screenshots/4132887/media/2b1c5c043e00b393b7e3cf6b4d489556.jpg?resize=800x600&vertical=center">
+    <form id="signupForm" action="signup.php" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <label>Name</label>
+            <input class="inp" type="text" id="name" placeholder="Enter Name" required name="name"><br><br>
+            <label>Registration Number</label>
+            <input class="inp" type="text" id="registrationNumber" placeholder="Enter Registration Number" required name="registrationNumber"><br><br>
+            <label>E-mail</label>
+            <input class="inp" type="email" id="email" placeholder="Enter e-mail" required name="email"><br><br>
+            <label>Password</label>
+            <input class="inp" type="password" id="password" placeholder="Enter Password" required name="password"><br><br>
+            <label>Confirm Password</label>
+            <input class="inp" type="password" id="confirmPassword" placeholder="Confirm Password" required name="confirmPassword"><br><br>
+            <label>Stream</label>
+            <select class="inp1" id="stream" required name="stream">
+                <option value="">Select Stream</option>
+                <option value="B.Tech">B.Tech</option>
+                <option value="MSc">MSc</option>
+                <option value="BSc">BSc</option>
+            </select><br><br>
+            <label>Year</label>
+            <select class="inp1" id="year" required name="year">
+                <option value="">Select Year</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+            </select><br><br>
+            <label>Branch</label>
+            <select class="inp1" id="branch" required name="branch">
+                <option value="">Select Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="IT">IT</option>
+                <option value="EEE">EEE</option>
+            </select><br><br>
+            <label>Linkedin</label>
+            <input class="inp" type="text" id="linkedin" placeholder="Enter Linkedin" name="linkedin"><br><br>
+            <label>Interests</label>
+            <input class="inp" type="text" id="interests" placeholder="Enter Interests" name="interests"><br><br>
+            <div class="form-group">
+                <label for="signup-profile-image">Profile Image</label>
+                <input type="file" id="signup-profile-image" name="signup-profile-image" accept="image/*" required>
+            </div>
+            <br>
+            <input type="checkbox" id="acceptTerms" required>
+            <label>By Creating your account you accept <a href="#">Terms of Use</a></label>
+            <div class="butto">
+                <button class="back" type="submit">Create Account</button>
+            </div>
+        </fieldset>
+    </form>
+    <script>
+        document.getElementById("signupForm").addEventListener("submit", function(event) {
+            var name = document.getElementById("name").value;
+            var registrationNumber = document.getElementById("registrationNumber").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var year = document.getElementById("year").value;
+            var branch = document.getElementById("branch").value;
+            var stream = document.getElementById("stream").value;
+            var linkedin = document.getElementById("linkedin").value;
+            var interests = document.getElementById("interests").value;
+            var acceptTerms = document.getElementById("acceptTerms").checked;
+
+            if (!name) {
+                alert("Please fill your name");
+                event.preventDefault();
+                return false;
+            }
+            if (!registrationNumber) {
+                alert("Please fill your registration number");
+                event.preventDefault();
+                return false;
+            }
+            if (!email) {
+                alert("Please fill your email");
+                event.preventDefault();
+                return false;
+            }
+            if (!password) {
+                alert("Please fill your password");
+                event.preventDefault();
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                event.preventDefault();
+                return false;
+            }
+            if (!year) {
+                alert("Please select your year");
+                event.preventDefault();
+                return false;
+            }
+            if (!branch) {
+                alert("Please select your branch");
+                event.preventDefault();
+                return false;
+            }
+            if (!stream) {
+                alert("Please select your stream");
+                event.preventDefault();
+                return false;
+            }
+            if (!acceptTerms) {
+                alert("Please accept the terms");
+                event.preventDefault();
+                return false;
+            }
+            if (!email.trim().endsWith('@gitam.edu') && !email.trim().endsWith('@gitam.in')) {
+                alert('Email must end with @gitam.edu or @gitam.in');
+                event.preventDefault();
+                return false;
+            }
+            // Allow form submission
+        });
+    </script>
+</body>
+</html>

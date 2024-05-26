@@ -1,0 +1,73 @@
+.butto
+{
+   text-align: center;
+}
+
+.b
+{
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: larger;
+}
+fieldset
+{
+    margin:auto;
+    text-align: left;
+    padding: 20px;
+    width: 480px;
+    margin-top: 2%;
+    background-color: #e2eff4;
+    border: none;
+    border-radius: 10px;
+}
+.inp
+{
+    float: right;
+    width:260px;
+    padding: 2px;
+}
+
+/* Adjust label styles */
+label[for="signup-profile-image"] {
+    display: block;
+    margin-bottom: 10px;
+    
+}
+
+
+a
+{
+    text-decoration: none;
+}
+img
+{
+    height: 40px;
+    margin-top: 1%;
+    width:90px;
+    float: left;
+}
+
+img
+{
+    text-align: center;
+}
+.back
+{
+    background-color: #497999;
+    border: transparent;
+    padding: 8px;
+    width: 200px;
+    color: whitesmoke;
+}
+.pic
+{
+    height: 400px;
+    width: 500px;
+}
+.inp1
+{
+    float: right;
+    width:267px;
+    padding: 2px;
+}

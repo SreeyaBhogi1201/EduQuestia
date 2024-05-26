@@ -1,0 +1,86 @@
+.butto {
+    text-align: center;
+    padding: 2%;
+ }
+ 
+ .back {
+     background-color: #497999;
+     border: transparent;
+     padding: 8px;
+     width: 200px;
+     color: white;
+ }
+ 
+ .b {
+     color: whitesmoke;
+     text-decoration: none;
+     font-weight: bolder;
+     font-size: larger;
+ }
+ 
+ fieldset {
+     margin:auto;
+     text-align: left;
+     padding: 20px;
+     width: 480px;
+     margin-top: 7%;
+     background-color: #e2eff4;
+     border: none;
+     border-radius: 10px;
+ }
+ 
+ .inp {
+     float: right;
+     width: 100%;
+     padding: 2%;
+     width: calc(100% - 4px);
+     box-sizing: border-box;
+ }
+ 
+ a {
+     text-decoration: none;
+ }
+ 
+ img {
+     height: 40px;
+     margin-top: 0%;
+     width:100px;
+     float: left;
+     margin-top: 50px;
+ }
+ 
+ label {
+     font-weight: bold;
+ }
+ 
+ .pic {
+     height: 350px;
+     width: 630px;
+     opacity: 0.8;
+     margin-left: 10px;
+ }
+
+
+
+ .captcha-container {
+    position: relative;
+}
+
+.refresh-button {
+    position: absolute;
+    right: 5px;
+    padding: 5px 10px;
+    font-size: 12px;
+    background-color: #ddd;
+    border: none;
+    cursor: pointer;
+    margin-top: 8px;
+}
+
+.captcha-input {
+    float: right;
+    width: 100%;
+    padding: 2%;
+    width: calc(100% - 4px);
+    box-sizing: border-box;/* Adjust based on the width of the button */
+}
